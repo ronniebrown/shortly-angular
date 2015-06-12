@@ -10,11 +10,24 @@ angular.module('shortly.services', [])
     .then(function(resp){
       console.log(resp.data);
       return resp.data;
+    });
+  };
+
+  // handle $location from controller?
+  var saveLink = function(url) {
+    return $http({
+      method: 'POST', 
+      url: '/api/links', 
+      data: {url : url}
     })
+    .then(function(resp){
+      console.log("New link created!", resp);
+    });
   };
 
   return {
-    getAll: getAll
+    getAll: getAll, 
+    saveLink: saveLink
   };
 
 })
