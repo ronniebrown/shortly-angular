@@ -78,6 +78,7 @@ module.exports = {
       if (err) {
         next(err);
       } else {
+        console.log(">>>>>>>", savedLink.url);
         res.redirect(savedLink.url);
       }
     });
