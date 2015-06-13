@@ -1,8 +1,17 @@
-<div id='container'>
-  <!-- Your html here -->
+<div class="navigation">
   <ul>
-    <li ng-repeat="link in data.links | orderBy: -visits">
-      <h3>{{ link }}</h3>
-    </li>
+    <li><a href="#/links">Links</a></li>
+    <li><a href="#/shorten">Shorten</a></li>
+    <li><a href="#/signout">Sign Out</a></li>
   </ul>
+</div>
+
+<div id='container'>
+  <div ng-repeat="link in data.links | orderBy: -visits">
+<!--       <h3>{{ link }}</h3> -->
+    <h3>{{ link.title }}</h3>
+    <div class="visits">{{ link.visits }} friends care about that link you posted...</div>
+    <div class="original">{{ link.url }}</div>
+    <a href="{{ link.base_url }}/{{ link.code }}">{{ link.base_url }}/{{ link.code }}</a>
+  </div>
 </div>
