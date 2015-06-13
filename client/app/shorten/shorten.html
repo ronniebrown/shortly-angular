@@ -7,8 +7,9 @@
 </div>
 
 <div id='container'>
-  <form ng-submit="addLink()">
-    <input type="url" placeholder="Enter link to shorten" ng-model="link.url">
-    <button>Submit</button>
+  <form name="shortenForm" ng-submit="addLink()" novalidate>
+    <input type="url" name="url" placeholder="Enter link to shorten" ng-model="link.url" required>
+    <span ng-show="shortenForm.url.$error.url">Please enter a valid URL</span>
+    <button ng-disabled="shortenForm.$invalid">Submit</button>
   </form>
 </div>
